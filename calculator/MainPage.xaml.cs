@@ -14,5 +14,12 @@ namespace calculator
         {
             InitializeComponent();
         }
+        public void AddNumber(Object sender, EventArgs e)
+        {
+            Button BtnDown = (Button)sender;
+
+            String BtnText = BtnDown.Text;
+            result.Text += BtnText;
+        }
     }
 }
