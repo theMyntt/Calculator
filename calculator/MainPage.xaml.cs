@@ -26,7 +26,6 @@ namespace calculator
         void AddNumber(Object sender, EventArgs e)
         {
             result.Text = "";
-            
 
             Button BtnDown = (Button)sender;
 
@@ -42,15 +41,25 @@ namespace calculator
             }
 
             result.Text = this.textResult;
-            
+
+            if (mathMethod == "")
+            {
+                this.firstNum = double.Parse(result.Text);
+            }
+            else
+            {
+                this.secondNum = double.Parse(result.Text);
+            }
         }
         void ClearNumber(Object sender, EventArgs e)
         {
             result.Text = "0";
             result.FontSize = 56;
 
-            this.mathMethod = null;
-            this.textResult = null;
+            this.mathMethod = "";
+            this.textResult = "";
+            this.firstNum = null;
+            this.secondNum = null;
         }
         void PlusMinus(Object sender, EventArgs e)
         {
@@ -58,7 +67,8 @@ namespace calculator
             {
                 this.textResult = this.textResult.Substring(1);
                 this.plusMinus = false;
-            }else
+            }
+            else
             {
                 this.textResult = "-" + this.textResult;
                 this.plusMinus = true;
@@ -73,13 +83,13 @@ namespace calculator
 
             try
             {
-                this.firstNum = double.Parse(this.textResult);
                 this.mathMethod = BtnText;
 
-                this.textResult = null;
-            } catch (Exception)
+                this.textResult = "";
+            }
+            catch (Exception)
             {
-                DisplayAlert("Erro", "Não foi possivel concluir esta ação", "OK");
+                DisplayAlert("Erro", "Não foi possível concluir esta ação", "OK");
             }
         }
         void MakeCalculation(Object sender, EventArgs e)
@@ -92,7 +102,7 @@ namespace calculator
                 {
                     case "+":
                         result.Text = (this.firstNum + this.secondNum).ToString();
-                        break; 
+                        break;
                     case "−":
                         result.Text = (this.firstNum - this.secondNum).ToString();
                         break;
@@ -100,36 +110,40 @@ namespace calculator
                         result.Text = (this.firstNum * this.secondNum).ToString();
                         break;
                     case "÷":
-                        if (this.firstNum != 0 || this.secondNum != 0)
+                        if (this.secondNum != 0)
                         {
                             result.Text = (this.firstNum / this.secondNum).ToString();
-                        }else
+                        }
+                        else
                         {
                             result.Text = "Indefinido";
                         }
                         break;
                 }
 
-                this.firstNum = 0;
-                this.secondNum = 0;
-            } catch (Exception)
+                this.firstNum = double.Parse(result.Text);
+                this.secondNum = null;
+            }
+            catch (Exception)
             {
-                DisplayAlert("Erro", "Não foi possivel concluir esta ação", "OK");
+                DisplayAlert("Erro", "Não foi possível concluir esta ação", "OK");
             }
         }
         void Percent(Object sender, EventArgs e)
         {
-            if (firstNum != null)
+            if (this.firstNum != null)
             {
-                this.secondNum = this.secondNum / 100;
-
+                this.firstNum /= 100;
+                result.Text = this.firstNum.ToString();
+            }
+            else if (this.secondNum != null)
+            {
+                this.secondNum /= 100;
                 result.Text = this.secondNum.ToString();
             }
             else
             {
-                this.firstNum = this.firstNum / 100;
-
-                result.Text = this.firstNum.ToString();
+                DisplayAlert("Erro", "Apenas um número deve ser definido para calcular a porcentagem", "OK");
             }
         }
     }
