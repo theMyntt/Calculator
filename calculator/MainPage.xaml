@@ -21,32 +21,32 @@
         <StackLayout Orientation="Vertical" Padding="0,0,0,50">
             <StackLayout Orientation="Horizontal">
                 <Button Text="C" Style="{StaticResource light_gray_style}" Clicked="ClearNumber"/>
-                <Button Text="±" Style="{StaticResource light_gray_style}" Clicked="AddNumber"/>
-                <Button Text="%" Style="{StaticResource light_gray_style}" Clicked="AddNumber"/>
-                <Button Text="÷" Style="{StaticResource orange_style}" />
+                <Button Text="±" Style="{StaticResource light_gray_style}" Clicked="PlusMinus"/>
+                <Button Text="%" Style="{StaticResource light_gray_style}" Clicked="Percent"/>
+                <Button Text="÷" Style="{StaticResource orange_style}" Clicked="SetMathMethod" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="7" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
                 <Button Text="8" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
                 <Button Text="9" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
-                <Button Text="×" Style="{StaticResource orange_style}"/>
+                <Button Text="×" Style="{StaticResource orange_style}" Clicked="SetMathMethod" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="4" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
                 <Button Text="5" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
                 <Button Text="6" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
-                <Button Text="−" Style="{StaticResource orange_style}"/>
+                <Button Text="−" Style="{StaticResource orange_style}" Clicked="SetMathMethod"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="1" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
                 <Button Text="2" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
                 <Button Text="3" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
-                <Button Text="+" Style="{StaticResource orange_style}"/>
+                <Button Text="+" Style="{StaticResource orange_style}" Clicked="SetMathMethod"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="0" WidthRequest="125" Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
-                <Button Text="," Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
-                <Button Text="÷" Style="{StaticResource orange_style}"/>
+                <Button Text="." Style="{StaticResource dark_gray_style}" Clicked="AddNumber"/>
+                <Button Text="=" Style="{StaticResource orange_style}" Clicked="MakeCalculation"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>
