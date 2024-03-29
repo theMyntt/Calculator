@@ -23,11 +23,15 @@ namespace calculator
             Button BtnDown = (Button)sender;
 
             String BtnText = BtnDown.Text;
-            if (result.Text.Length > 7)
+            if (result.Text.Length == 7)
             {
                 result.FontSize -= 10;
             }
-            result.Text += BtnText;
+
+            if (result.Text.Length < 9)
+            {
+                result.Text += BtnText;
+            }
             
         }
         void ClearNumber(Object sender, EventArgs e)
