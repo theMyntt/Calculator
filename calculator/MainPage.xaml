@@ -15,11 +15,12 @@
             TextColor="White"
             FontSize="56"
             HorizontalTextAlignment="End"
+            MaxLines="1"
         />
 
         <StackLayout Orientation="Vertical" Padding="0,0,0,50">
             <StackLayout Orientation="Horizontal">
-                <Button Text="C" Padding="15" BackgroundColor="#D4D4D2" CornerRadius="30" WidthRequest="60" HeightRequest="60" TextColor="black" FontSize="24" Clicked="AddNumber"/>
+                <Button Text="C" Padding="15" BackgroundColor="#D4D4D2" CornerRadius="30" WidthRequest="60" HeightRequest="60" TextColor="black" FontSize="24" Clicked="ClearNumber"/>
                 <Button Text="±" Padding="15" BackgroundColor="#D4D4D2" CornerRadius="30" WidthRequest="60" HeightRequest="60" TextColor="black" FontSize="24" Clicked="AddNumber"/>
                 <Button Text="%" Padding="15" BackgroundColor="#D4D4D2" CornerRadius="30" WidthRequest="60" HeightRequest="60" TextColor="black" FontSize="24" Clicked="AddNumber"/>
                 <Button Text="÷" Padding="15" BackgroundColor="#FF9500" CornerRadius="30" WidthRequest="60" HeightRequest="60" TextColor="white" FontSize="24"/>
